@@ -6,7 +6,24 @@
 <meta name="keywords" content="{site.seo_keyword}" />
 <meta name="description" content="{site.seo_description}" />
 <link href="<%templateskin%>/css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/jquery/jquery-1.11.2.min.js"></script>
+    <link href="<%templateskin%>/css/lunbo.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%templateskin%>/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="<%templateskin%>/js/loopedslider.min.js"></script>
+<script type="text/javascript" src="<%templateskin%>/js/jquery.slide.js"></script>
+<script type="text/javascript">
+    $(function (){
+	
+        /* 用按钮控制图片左右滚动 */
+        $(".hotPic .JQ-slide").Slide({
+            effect:"scroolLoop",
+            autoPlay:false,
+            speed:"normal",
+            timer:3000,
+            steps:1
+        });
+	
+    });
+    </script>
 
 </head>
 
@@ -14,6 +31,435 @@
 <!--Header-->
 <%template src="_header.html"%>
 <!--/Header-->
+
+    <div class="content">
+  <div class="weather">
+    <div class="fl">
+      <iframe allowtransparency="true" frameborder="0" width="180" height="36" scrolling="no" src="http://tianqi.2345.com/plugin/widget/index.htm?s=3&z=2&t=0&v=0&d=3&bd=0&k=&f=&q=1&e=1&a=1&c=54843&w=180&h=36&align=left"></iframe>
+    </div>
+    <div class="fl"> 
+      <script type="text/javascript">
+          var weekDayLabels = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+          var now = new Date();
+          var year = now.getFullYear();
+          var month = now.getMonth() + 1;
+          var day = now.getDate();
+          var currentime = year + "年" + month + "月" + day + "日 " + weekDayLabels[now.getDay()];
+          document.write(currentime);
+                </script> 
+    </div>
+    <div class="fr search">
+      <input name="" type="text" />
+      <button class="searchbtn"></button>
+    </div>
+  </div>
+  <!--轮播图片-->
+  <script type=text/javascript>
+      $(function () {
+          $('#newsSlider').loopedSlider({
+              autoStart: 5000
+          });
+          $('.validate_Slider').loopedSlider({
+              autoStart: 5000
+          });
+          $("#enter_lab").click(function () {
+              window.location = $(this).find("a").attr("href"); return false;
+          });
+      });
+</script> 
+  <div id="newsSlider">
+   <div class="newspic">
+    <ul class="slides">
+      <li><a href=" " target="_blank"><img src="<%templateskin%>/images/pic1.jpg"></a>
+        <dl>
+          <dt><a href=" " target="_blank">山脊赛车RR App Stores发... </a></dt>
+          <dd>在毫无过多征兆的情况下，Namco突然发布这款山脊赛车系列最新作登陆iPhone平台，在毫无过多征兆的情况下，Namco突然发布这款山脊赛车系列最新作登陆iPhone平台,iPhon... </dd>
+        </dl>
+      </li>
+      <li><a href=" " target="_blank"><img src="<%templateskin%>/images/pic2.jpg"></a>
+        <dl>
+          <dt><a href=" " target="_blank">回首苹果2009,展望2010 </a></dt>
+          <dd>2009已经接近尾声, 回首2009年, 很多人认为今年是苹果历史上最成功的一年, 甚至可以认... </dd>
+        </dl>
+      </li>
+      <li><a href=" " target="_blank"><img src="<%templateskin%>/images/pic3.jpg"></a>
+        <dl>
+          <dt><a href=" " target="_blank">Gameloft大作Nova 最新视...</a></dt>
+          <dd>Gameloft的第一人称射击游戏Nova可能是目前很多人都在期待的游戏. 记得9月份Gameloft... </dd>
+        </dl>
+      </li>
+      <li><a href=" " target="_blank"><img src="<%templateskin%>/images/pic4.jpg"></a>
+        <dl>
+          <dt><a href=" " target="_blank">iPhone和它们，谁才是主角...</a></dt>
+          <dd>这是国外网站选出的为搭配iPhone和Mac的一些音频设备，很多都是目前的终极设备，到底... </dd>
+        </dl>
+      </li>
+    </ul>
+   </div>
+  
+  <ul class="pagination">
+    <li><a href=" #">1</a> </li>
+    <li><a href=" #">2</a> </li>
+    <li><a href=" #">3</a> </li>
+    <li><a href=" #">4</a> </li>
+  </ul>
+</div>
+
+        <div class="imp-news">
+    <div class="title-box">
+      <div class="title"><img src="<%templateskin%>/images/news-icon.png" />廉政要闻</div>
+      <div class="more"><a href="#">更多</a></div>
+    </div>
+    <div class="news">
+
+        <ul class="txt-list">
+        <%set DataTable newsList=get_article_list("jianchanews", 0, 10, "status=0")%>
+        <%loop newdr newsList%>
+        <li>
+          <a title="{newdr[title]}" href="<%linkurl("news_show",{newdr[id]})%>">{newdr[title]}</a><%datetostr({newdr[add_time]},YYYY-MM-dd)%>
+        </li>
+        <%/loop%>
+      </ul>
+    </div>
+
+  </div>
+        <div class="w980"> 
+    <!--通知公告-->
+    <div class="notice">
+      <div class="title-box">
+        <div class="title">通知公告</div>
+        <div class="more"><a href="#">更多</a></div>
+      </div>
+      <div class="news">
+        <ul>
+        <%set DataTable newsList2=get_article_list("jianchanews", 61, 10, "status=0")%>
+        <%loop newdr2 newsList2%>
+        <li>
+          <a title="{newdr2[title]}" href="<%linkurl("news_show",{newdr2[id]})%>">{newdr2[title]}</a><%datetostr({newdr2[add_time]},YYYY-MM-dd)%>
+        </li>
+        <%/loop%>
+        </ul>
+      </div>
+    </div>
+    <!--工作动态-->
+    <div class="dynamic">
+      <div class="title-box">
+        <div class="title">工作动态</div>
+        <div class="more"><a href="#">更多</a></div>
+      </div>
+      <div class="news">
+        <ul>
+          <%set DataTable newsList3=get_article_list("jianchanews", 59, 10, "status=0")%>
+        <%loop newdr3 newsList3%>
+        <li>
+          <a title="{newdr3[title]}" href="<%linkurl("news_show",{newdr3[id]})%>">{newdr3[title]}</a><%datetostr({newdr3[add_time]},YYYY-MM-dd)%>
+        </li>
+        <%/loop%>
+        </ul>
+      </div>
+    </div>
+    <!--信访举报-->
+    <div class="msg">
+      <div class="title-box">
+        <div class="msg-title"><img src="<%templateskin%>/images/message-icon.png" />信访举报</div>
+      </div>
+      <ul>
+        <li class="green"><span><img src="<%templateskin%>/images/jbzn-icon.png" /></span><a href="#">举报指南</a></li>
+        <li class="red"><span><img src="<%templateskin%>/images/wyjb-icon.png" /></span><a href="#">我要举报</a></li>
+        <li class="orange"><span><img src="<%templateskin%>/images/jbcx-icon.png" /></span><a href="#">举报查询</a></li>
+      </ul>
+      <p>举报电话：010-99553386</p>
+    </div>
+
+
+            <div class="zhuanti"> <img src="<%templateskin%>/images/zhuanti1.jpg" /> </div>
+  <!--互动交流-->
+  <div class="hudongjiaoliu">
+    <div class="title-box">
+      <div class="title">互动交流</div>
+      <div class="more"><a href="#">更多</a></div>
+    </div>
+    <div class="hdjl-hot">
+      <div class="hotimg"><img src="<%templateskin%>/images/hdjl-img.jpg" /></div>
+      <div class="hottext">
+        <h2><a href="#">中央纪委委员、贵州省委常委、省纪委书记宋璇...</a></h2>
+        <p><a href="#">宋璇涛：第三个方面解决了原来办不成案的问题；第四个也解决了真正意义上监督同级党委的问题。民生特派组长是我们县里系统纪工委主任兼任，那么这个乡镇。我们贵州去年是2400多个亿惠民资金，执行党的路线方针政策连惠民资金都不能落实到位的话，其他的恐怕...
+          就是一句空话。所以说，纪检监察工作... </a> </p>
+      </div>
+    </div>
+    <div class="news hdjl-list">
+      <ul>
+         <%set DataTable newsList4=get_article_list("jianchanews", 62, 3, "status=0")%>
+        <%loop newdr4 newsList4%>
+        <li>
+          <a title="{newdr4[title]}" href="<%linkurl("news_show",{newdr4[id]})%>">{newdr4[title]}</a><%datetostr({newdr4[add_time]},YYYY-MM-dd)%>
+        </li>
+        <%/loop%>
+      </ul>
+    </div>
+    <div class="news hdjl-list noborder">
+      <ul>
+        <%set DataTable newsList5=get_article_list("jianchanews", 62, 3, "status=0")%>
+        <%loop newdr5 newsList5%>
+        <li>
+          <a title="{newdr5[title]}" href="<%linkurl("news_show",{newdr5[id]})%>">{newdr5[title]}</a><%datetostr({newdr5[add_time]},YYYY-MM-dd)%>
+        </li>
+        <%/loop%>
+      </ul>
+    </div>
+  </div>
+  <!--理论思考-->
+  <div class="lilunsikao">
+    <div class="title-box">
+      <div class="title">理论思考</div>
+      <div class="more"><a href="#">更多</a></div>
+    </div>
+    <div class="news">
+      <ul>
+        <%set DataTable newsList6=get_article_list("jianchanews", 62, 3, "status=0")%>
+        <%loop newdr6 newsList6%>
+        <li>
+          <a title="{newdr6[title]}" href="<%linkurl("news_show",{newdr6[id]})%>">{newdr6[title]}</a><%datetostr({newdr6[add_time]},YYYY-MM-dd)%>
+        </li>
+        <%/loop%>
+      </ul>
+    </div>
+  </div>
+  <!--廉政先锋-->
+  <div class="fl third">
+    <div class="title-box">
+      <div class="title">廉政先锋</div>
+      <div class="more"><a href="#">更多</a></div>
+    </div>
+    <div class="pioneer">
+      <img src="<%templateskin%>/images/lzxf-img.jpg" />
+      <a href="#">这里是主题字段</a>
+    </div>
+    <div class="news">
+      <ul>
+        <%set DataTable newsList7=get_article_list("jianchanews", 62, 3, "status=0")%>
+        <%loop newdr7 newsList7%>
+        <li>
+          <a title="{newdr7[title]}" href="<%linkurl("news_show",{newdr7[id]})%>">{newdr7[title]}</a>
+        </li>
+        <%/loop%>
+      </ul>
+    </div>
+  </div>
+  <!--政策法规-->
+  <div class="fl third nomargin">
+    <div class="title-box">
+      <div class="title">政策法规</div>
+      <div class="more"><a href="#">更多</a></div>
+    </div>
+    <div class="redline"></div>
+    <div class="news ">
+      <ul>
+        <%set DataTable newsList8=get_article_list("jianchanews", 62, 3, "status=0")%>
+        <%loop newdr8 newsList8%>
+        <li>
+          <a title="{newdr8[title]}" href="<%linkurl("news_show",{newdr8[id]})%>">{newdr8[title]}</a>
+        </li>
+        <%/loop%>
+      </ul>
+    </div>
+  </div>
+  <!--违纪曝光-->
+  <div class="fr third nomargin">
+    <div class="title-box">
+      <div class="title"><img src="<%templateskin%>/images/wjbg-icon.png" />违纪曝光</div>
+      <div class="more"><a href="#">更多</a></div>
+    </div>
+    <div class="hotPic">
+		<div class="JQ-slide">
+			<div class="JQ-slide-nav"><a class="prev" href="javascript:void(0);">&#8249;</a><a class="next" href="javascript:void(0);">&#8250;</a></div>
+			<div class="wrap">
+				<ul class="JQ-slide-content imgList">
+					<li>
+						<a href="#" class="img"><img src="<%templateskin%>/images/vedio-img.jpg"  alt="1111" /></a>
+						<a href="#" class="txt">用jquery特效制作图片金字塔式放大缩小展示</a>
+					</li>
+					<li>
+						<a href="#" class="img"><img src="<%templateskin%>/images/vedio-img2.jpg"  alt="1111" /></a>
+						<a href="#" class="txt">jquery特效制作 slide 图片窗帘式滚动</a>
+					</li>
+					<li>
+						<a href="#" class="img"><img src="<%templateskin%>/images/pic1.jpg" /></a>
+						<a href="#" class="txt">仿苹果视网膜效应的jQuery和CSS</a>
+					</li>
+					<li>
+						<a href="#" class="img"><img src="<%templateskin%>/images/pic2.jpg" /></a>
+						<a href="#" class="txt">斯莱德奥特提示使用jQuery和CSS3</a>
+					</li>
+					<li>
+						<a href="#" class="img"><img src="<%templateskin%>/images/pic3.jpg" /></a>
+						<a href="#" class="txt">用jquery特效制作图片金字塔式放大缩小展示</a>
+					</li>
+					<li>
+						<a href="#" class="img"><img src="<%templateskin%>/images/pic4.jpg" /></a>
+						<a href="#" class="txt">jquery特效制作 slide 图片窗帘式滚动</a>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+    <div class="news break-rule-list">
+      <ul>
+        <%set DataTable newsList9=get_article_list("jianchanews", 62, 3, "status=0")%>
+        <%loop newdr9 newsList9%>
+        <li>
+          <a title="{newdr9[title]}" href="<%linkurl("news_show",{newdr9[id]})%>">{newdr9[title]}</a>
+        </li>
+        <%/loop%>
+      </ul>
+    </div>
+  </div>
+  <!--快捷入口-->
+  <script type="text/javascript">
+
+      function scrollDoor() {
+      }
+      scrollDoor.prototype = {
+          sd: function (menus, divs, openClass, closeClass) {
+              var _this = this;
+              if (menus.length != divs.length) {
+                  alert("菜单层数量和内容层数量不一样!");
+                  return false;
+              }
+              for (var i = 0 ; i < menus.length ; i++) {
+                  _this.$(menus[i]).value = i;
+                  _this.$(menus[i]).onclick = function () {
+
+                      for (var j = 0 ; j < menus.length ; j++) {
+                          _this.$(menus[j]).className = closeClass;
+                          _this.$(divs[j]).style.display = "none";
+                      }
+                      _this.$(menus[this.value]).className = openClass;
+                      _this.$(divs[this.value]).style.display = "block";
+                  }
+              }
+          },
+          $: function (oid) {
+              if (typeof (oid) == "string")
+                  return document.getElementById(oid);
+              return oid;
+          }
+      }
+      window.onload = function () {
+          var SDmodel = new scrollDoor();
+          SDmodel.sd(["m01", "m02", "m03"], ["c01", "c02", "c03"], "sd01", "sd02");
+          SDmodel.sd(["mm01", "mm02", "mm03"], ["cc01", "cc02", "cc03"], "sd03", "sd02");
+      }
+</script>
+  <div class="tabbox" >
+     <div class="red-title-box"><div class="red-title">快捷入口</div></div>
+     <div class="preview">
+        <div class="scrollUl">
+			<ul>
+				<li class="sd01" id="m01">廉政教育</li>
+				<li class="sd02" id="m02">问卷调查</li>
+				<li class="sd02" id="m03">网址导航</li>
+			</ul>
+        </div>
+			<div class="cont">
+				<div id="c01">
+					<a href="#">以案说纪</a>
+                    <a href="#">廉政文艺</a>
+                    <a href="#">廉史博览</a>
+                    <a href="#">廉政书籍</a>
+                    <a href="#">法规释义</a>
+                    
+				</div>
+				<div id="c02" class="hidden">
+					<a href="#">廉政文艺</a>
+                    <a href="#">廉政文艺</a>
+                    <a href="#">廉政文艺</a>
+                    <a href="#">廉政文艺</a>
+                    <a href="#">廉政文艺</a>
+				</div>
+				<div id="c03" class="hidden">
+					<a href="#">廉史博览</a>
+                    <a href="#">廉史博览</a>
+                    <a href="#">廉史博览</a>
+                    <a href="#">廉史博览</a>
+                    <a href="#">廉史博览</a>
+                    <a href="#">廉史博览</a>
+				</div>
+			</div>
+	</div>
+  </div>
+  <div class="tabbox">
+     <div class="yellow-title-box"><div class="yellow-title">政务公开</div></div>
+     <div class="preview">
+        <div class="scrollUl">
+			<ul>
+				<li class="sd03" id="mm01">政府信息公开</li>
+				<li class="sd02" id="mm02">依申请公开</li>
+				<li class="sd02" id="mm03">公开保</li>
+			</ul>
+        </div>
+			<div class="cont2"> 
+				<div id="cc01">
+					<a href="#">领导简历</a>
+                    <a href="#">政府公文</a>
+                    <a href="#">权力公开</a>
+                    <a href="#">发展规划</a>
+                    <a href="#">重点工作</a>
+                    <a href="#">人事信息</a>
+                    <a href="#">统计数据</a>
+                    <a href="#">应急管理</a>
+                    <a href="#">行政收费</a>
+                    <a href="#">部门信息</a>
+                    <a href="#">更多公开内容</a>
+                    
+				</div>
+				<div id="cc02" class="hidden">
+					<a href="#">廉政文艺</a>
+                    <a href="#">廉政文艺</a>
+                    <a href="#">廉政文艺</a>
+                    <a href="#">廉政文艺</a>
+                    <a href="#">廉政文艺</a>
+				</div>
+				<div id="cc03" class="hidden">
+					<a href="#">廉史博览</a>
+                    <a href="#">廉史博览</a>
+                    <a href="#">廉史博览</a>
+                    <a href="#">廉史博览</a>
+                    <a href="#">廉史博览</a>
+                    <a href="#">廉史博览</a>
+				</div>
+			</div>
+	</div>
+  </div>
+  <div class="btnbox">
+     <b><a href="#">发布通知</a></b>
+     <b><a href="#">区政府折子工作</a></b>
+     <b><a href="#">园区建设</a></b>
+     <b><a href="#">自身建设</a></b>
+     <b><a href="#">环境巡查日报</a></b>
+     <div class="bigbutton">
+       <span class="fl">
+         <a href="#"><img src="<%templateskin%>/images/yqgw-icon.png" /><h4>园区官网</h4></a>
+       </span>
+       <span class="fr">
+         <a href="#"><img src="<%templateskin%>/images/ldxx-icon.png" /><h4>领导信箱</h4></a>
+       </span>
+     </div>
+  </div>
+  <div class="zhuanti">
+    <img src="<%templateskin%>/images/zhuanti2.jpg" />
+  </div>
+</div>
+
+
+
+  </div>
+
+
+
+        </div>
+
 
 
 <!--Footer-->

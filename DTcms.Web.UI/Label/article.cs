@@ -137,7 +137,7 @@ namespace DTcms.Web.UI
                 dt = new BLL.article().GetList(channel_name, category_id, page_size, page_index, strwhere, orderby, out totalcount).Tables[0];
                 pagelist = Utils.OutPageList(page_size, page_index, totalcount, linkurl(_key, _params), 8);
             }
-            else
+           else
             {
                 totalcount = 0;
                 pagelist = "";
