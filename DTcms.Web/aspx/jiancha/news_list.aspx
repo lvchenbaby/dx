@@ -9,8 +9,8 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by DTcms Template Engine at 2015/11/29 17:52:56.
-		本页面代码由DTcms模板引擎生成于 2015/11/29 17:52:56. 
+		This page was created by DTcms Template Engine at 2015/11/29 18:20:25.
+		本页面代码由DTcms模板引擎生成于 2015/11/29 18:20:25. 
 	*/
 
 	base.OnInit(e);
@@ -46,20 +46,20 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("/templates/jiancha");
 	templateBuilder.Append("/images/language2.gif\"/></a>\r\n    <a href=\"#\"><img src=\"");
 	templateBuilder.Append("/templates/jiancha");
-	templateBuilder.Append("/images/language3.gif\"/></a>\r\n</div>\r\n<div class=\"container\"></div>\r\n<div class=\"menu\">\r\n    <ul>\r\n        <li><a href=\"#\" class=\"/index.aspx\">首页</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("jianchanews"));
+	templateBuilder.Append("/images/language3.gif\"/></a>\r\n</div>\r\n<div class=\"container\"></div>\r\n<div class=\"menu\">\r\n    <ul>\r\n        <li><a href=\"/index.aspx\" class=\"\">首页</a></li>\r\n        <li><a href=\"");
+	templateBuilder.Append(linkurl("list_news",55));
 
 	templateBuilder.Append("\">政务公开</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("jianchanews"));
+	templateBuilder.Append(linkurl("list_news",56));
 
 	templateBuilder.Append("\">要闻动态</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("jianchanews"));
+	templateBuilder.Append(linkurl("list_news",57));
 
 	templateBuilder.Append("\">政策法规</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("jianchanews"));
+	templateBuilder.Append(linkurl("list_news",58));
 
 	templateBuilder.Append("\">监督举报</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("jianchanews"));
+	templateBuilder.Append(linkurl("list_news",60));
 
 	templateBuilder.Append("\">廉政清风</a></li>\r\n    </ul>\r\n</div>");
 
