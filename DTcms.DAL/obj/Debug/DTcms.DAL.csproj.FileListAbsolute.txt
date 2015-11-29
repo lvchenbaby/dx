@@ -53,3 +53,14 @@ D:\dtCMS发货\集成更新包\DTcms_4.0_sql_src_Ultimate\DTcms.DAL\bin\Debug\DT
 D:\dtCMS发货\集成更新包\DTcms_4.0_sql_src_Ultimate\DTcms.DAL\obj\Debug\DTcms.DAL.csprojResolveAssemblyReference.cache
 D:\dtCMS发货\集成更新包\DTcms_4.0_sql_src_Ultimate\DTcms.DAL\obj\Debug\DTcms.DAL.dll
 D:\dtCMS发货\集成更新包\DTcms_4.0_sql_src_Ultimate\DTcms.DAL\obj\Debug\DTcms.DAL.pdb
+D:\workspace\dx2\DTcms.DAL\bin\Debug\DTcms.DAL.dll
+D:\workspace\dx2\DTcms.DAL\bin\Debug\DTcms.DAL.pdb
+D:\workspace\dx2\DTcms.DAL\bin\Debug\DTcms.Common.dll
+D:\workspace\dx2\DTcms.DAL\bin\Debug\DTcms.DBUtility.dll
+D:\workspace\dx2\DTcms.DAL\bin\Debug\DTcms.Model.dll
+D:\workspace\dx2\DTcms.DAL\bin\Debug\DTcms.Common.pdb
+D:\workspace\dx2\DTcms.DAL\bin\Debug\DTcms.DBUtility.pdb
+D:\workspace\dx2\DTcms.DAL\bin\Debug\DTcms.Model.pdb
+D:\workspace\dx2\DTcms.DAL\obj\Debug\DTcms.DAL.csprojResolveAssemblyReference.cache
+D:\workspace\dx2\DTcms.DAL\obj\Debug\DTcms.DAL.dll
+D:\workspace\dx2\DTcms.DAL\obj\Debug\DTcms.DAL.pdb

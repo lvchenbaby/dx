@@ -9,8 +9,8 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by DTcms Template Engine at 2015/11/28 16:53:48.
-		本页面代码由DTcms模板引擎生成于 2015/11/28 16:53:48. 
+		This page was created by DTcms Template Engine at 2015/11/29 17:52:56.
+		本页面代码由DTcms模板引擎生成于 2015/11/29 17:52:56. 
 	*/
 
 	base.OnInit(e);
@@ -64,17 +64,27 @@ override protected void OnInit(EventArgs e)
 
 	templateBuilder.Append("\r\n<!--/Header-->\r\n\r\n    <div class=\"content\">\r\n  <div class=\"weather\">\r\n    <div class=\"fl\">\r\n      <iframe allowtransparency=\"true\" frameborder=\"0\" width=\"180\" height=\"36\" scrolling=\"no\" src=\"http://tianqi.2345.com/plugin/widget/index.htm?s=3&z=2&t=0&v=0&d=3&bd=0&k=&f=&q=1&e=1&a=1&c=54843&w=180&h=36&align=left\"></iframe>\r\n    </div>\r\n    <div class=\"fl\"> \r\n      <script type=\"text/javascript\">\r\n          var weekDayLabels = new Array(\"星期日\", \"星期一\", \"星期二\", \"星期三\", \"星期四\", \"星期五\", \"星期六\");\r\n          var now = new Date();\r\n          var year = now.getFullYear();\r\n          var month = now.getMonth() + 1;\r\n          var day = now.getDate();\r\n          var currentime = year + \"年\" + month + \"月\" + day + \"日 \" + weekDayLabels[now.getDay()];\r\n          document.write(currentime);\r\n                </");
 	templateBuilder.Append("script> \r\n    </div>\r\n    <div class=\"fr search\">\r\n      <input name=\"\" type=\"text\" />\r\n      <button class=\"searchbtn\"></button>\r\n    </div>\r\n  </div>\r\n  <!--轮播图片-->\r\n  <script type=text/javascript>\r\n      $(function () {\r\n          $('#newsSlider').loopedSlider({\r\n              autoStart: 5000\r\n          });\r\n          $('.validate_Slider').loopedSlider({\r\n              autoStart: 5000\r\n          });\r\n          $(\"#enter_lab\").click(function () {\r\n              window.location = $(this).find(\"a\").attr(\"href\"); return false;\r\n          });\r\n      });\r\n</");
-	templateBuilder.Append("script> \r\n  <div id=\"newsSlider\">\r\n   <div class=\"newspic\">\r\n    <ul class=\"slides\">\r\n      <li><a href=\" \" target=\"_blank\"><img src=\"");
+	templateBuilder.Append("script> \r\n  <div id=\"newsSlider\">\r\n   <div class=\"newspic\">\r\n    <ul class=\"slides\">\r\n        ");
+	DataTable focusNews = get_article_list("jianchanews", 0, 8, "status=0 and is_slide=1 and img_url<>''");
+
+	foreach(DataRow dr in focusNews.Rows)
+	{
+
+	templateBuilder.Append("\r\n          <li>\r\n              <a href=\"");
+	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(dr["id"])));
+
+	templateBuilder.Append("\" target=\"_blank\"><img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\"></a>\r\n        <dl>\r\n          <dt><a href=\"");
+	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(dr["id"])));
+
+	templateBuilder.Append("\" target=\"_blank\">" + Utils.ObjectToStr(dr["title"]) + " </a></dt>\r\n          <dd> " + Utils.ObjectToStr(dr["zhaiyao"]) + "</dd>\r\n        </dl>\r\n          </li>\r\n          ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n\r\n    </ul>\r\n   </div>\r\n  \r\n  <ul class=\"pagination\">\r\n    <li><a href=\" #\">1</a> </li>\r\n    <li><a href=\" #\">2</a> </li>\r\n    <li><a href=\" #\">3</a> </li>\r\n    <li><a href=\" #\">4</a> </li>\r\n  </ul>\r\n</div>\r\n\r\n        <div class=\"imp-news\">\r\n    <div class=\"title-box\">\r\n      <div class=\"title\"><img src=\"");
 	templateBuilder.Append("/templates/jiancha");
-	templateBuilder.Append("/images/pic1.jpg\"></a>\r\n        <dl>\r\n          <dt><a href=\" \" target=\"_blank\">山脊赛车RR App Stores发... </a></dt>\r\n          <dd>在毫无过多征兆的情况下，Namco突然发布这款山脊赛车系列最新作登陆iPhone平台，在毫无过多征兆的情况下，Namco突然发布这款山脊赛车系列最新作登陆iPhone平台,iPhon... </dd>\r\n        </dl>\r\n      </li>\r\n      <li><a href=\" \" target=\"_blank\"><img src=\"");
-	templateBuilder.Append("/templates/jiancha");
-	templateBuilder.Append("/images/pic2.jpg\"></a>\r\n        <dl>\r\n          <dt><a href=\" \" target=\"_blank\">回首苹果2009,展望2010 </a></dt>\r\n          <dd>2009已经接近尾声, 回首2009年, 很多人认为今年是苹果历史上最成功的一年, 甚至可以认... </dd>\r\n        </dl>\r\n      </li>\r\n      <li><a href=\" \" target=\"_blank\"><img src=\"");
-	templateBuilder.Append("/templates/jiancha");
-	templateBuilder.Append("/images/pic3.jpg\"></a>\r\n        <dl>\r\n          <dt><a href=\" \" target=\"_blank\">Gameloft大作Nova 最新视...</a></dt>\r\n          <dd>Gameloft的第一人称射击游戏Nova可能是目前很多人都在期待的游戏. 记得9月份Gameloft... </dd>\r\n        </dl>\r\n      </li>\r\n      <li><a href=\" \" target=\"_blank\"><img src=\"");
-	templateBuilder.Append("/templates/jiancha");
-	templateBuilder.Append("/images/pic4.jpg\"></a>\r\n        <dl>\r\n          <dt><a href=\" \" target=\"_blank\">iPhone和它们，谁才是主角...</a></dt>\r\n          <dd>这是国外网站选出的为搭配iPhone和Mac的一些音频设备，很多都是目前的终极设备，到底... </dd>\r\n        </dl>\r\n      </li>\r\n    </ul>\r\n   </div>\r\n  \r\n  <ul class=\"pagination\">\r\n    <li><a href=\" #\">1</a> </li>\r\n    <li><a href=\" #\">2</a> </li>\r\n    <li><a href=\" #\">3</a> </li>\r\n    <li><a href=\" #\">4</a> </li>\r\n  </ul>\r\n</div>\r\n\r\n        <div class=\"imp-news\">\r\n    <div class=\"title-box\">\r\n      <div class=\"title\"><img src=\"");
-	templateBuilder.Append("/templates/jiancha");
-	templateBuilder.Append("/images/news-icon.png\" />廉政要闻</div>\r\n      <div class=\"more\"><a href=\"#\">更多</a></div>\r\n    </div>\r\n    <div class=\"news\">\r\n\r\n        <ul class=\"txt-list\">\r\n        ");
+	templateBuilder.Append("/images/news-icon.png\" />廉政要闻</div>\r\n      <div class=\"more\"><a href=\"");
+	templateBuilder.Append(linkurl("news_list",56));
+
+	templateBuilder.Append("\">更多</a></div>\r\n    </div>\r\n    <div class=\"news\">\r\n\r\n        <ul class=\"txt-list\">\r\n        ");
 	DataTable newsList = get_article_list("jianchanews", 0, 10, "status=0");
 
 	int newdr__loop__id=0;
@@ -86,12 +96,15 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("\r\n        <li>\r\n          <a title=\"" + Utils.ObjectToStr(newdr["title"]) + "\" href=\"");
 	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(newdr["id"])));
 
-	templateBuilder.Append("\">" + Utils.ObjectToStr(newdr["title"]) + "</a>");	templateBuilder.Append(Utils.ObjectToDateTime(Utils.ObjectToStr(newdr["add_time"])).ToString("YYYY-MM-dd"));
+	templateBuilder.Append("\">" + Utils.ObjectToStr(newdr["title"]) + "</a>");	templateBuilder.Append(Utils.ObjectToDateTime(Utils.ObjectToStr(newdr["add_time"])).ToString("yyyy-MM-dd"));
 
 	templateBuilder.Append("\r\n        </li>\r\n        ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n      </ul>\r\n    </div>\r\n\r\n  </div>\r\n        <div class=\"w980\"> \r\n    <!--通知公告-->\r\n    <div class=\"notice\">\r\n      <div class=\"title-box\">\r\n        <div class=\"title\">通知公告</div>\r\n        <div class=\"more\"><a href=\"#\">更多</a></div>\r\n      </div>\r\n      <div class=\"news\">\r\n        <ul>\r\n        ");
+	templateBuilder.Append("\r\n      </ul>\r\n    </div>\r\n\r\n  </div>\r\n        <div class=\"w980\"> \r\n    <!--通知公告-->\r\n    <div class=\"notice\">\r\n      <div class=\"title-box\">\r\n        <div class=\"title\">通知公告</div>\r\n        <div class=\"more\"><a href=\"");
+	templateBuilder.Append(linkurl("news_list",61));
+
+	templateBuilder.Append("\">更多</a></div>\r\n      </div>\r\n      <div class=\"news\">\r\n        <ul>\r\n        ");
 	DataTable newsList2 = get_article_list("jianchanews", 61, 10, "status=0");
 
 	int newdr2__loop__id=0;
@@ -103,12 +116,15 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("\r\n        <li>\r\n          <a title=\"" + Utils.ObjectToStr(newdr2["title"]) + "\" href=\"");
 	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(newdr2["id"])));
 
-	templateBuilder.Append("\">" + Utils.ObjectToStr(newdr2["title"]) + "</a>");	templateBuilder.Append(Utils.ObjectToDateTime(Utils.ObjectToStr(newdr2["add_time"])).ToString("YYYY-MM-dd"));
+	templateBuilder.Append("\">" + Utils.ObjectToStr(newdr2["title"]) + "</a>");	templateBuilder.Append(Utils.ObjectToDateTime(Utils.ObjectToStr(newdr2["add_time"])).ToString("yyyy-MM-dd"));
 
 	templateBuilder.Append("\r\n        </li>\r\n        ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n        </ul>\r\n      </div>\r\n    </div>\r\n    <!--工作动态-->\r\n    <div class=\"dynamic\">\r\n      <div class=\"title-box\">\r\n        <div class=\"title\">工作动态</div>\r\n        <div class=\"more\"><a href=\"#\">更多</a></div>\r\n      </div>\r\n      <div class=\"news\">\r\n        <ul>\r\n          ");
+	templateBuilder.Append("\r\n        </ul>\r\n      </div>\r\n    </div>\r\n    <!--工作动态-->\r\n    <div class=\"dynamic\">\r\n      <div class=\"title-box\">\r\n        <div class=\"title\">工作动态</div>\r\n        <div class=\"more\"><a href=\"");
+	templateBuilder.Append(linkurl("news_list",59));
+
+	templateBuilder.Append("\">更多</a></div>\r\n      </div>\r\n      <div class=\"news\">\r\n        <ul>\r\n          ");
 	DataTable newsList3 = get_article_list("jianchanews", 59, 10, "status=0");
 
 	int newdr3__loop__id=0;
@@ -120,7 +136,7 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("\r\n        <li>\r\n          <a title=\"" + Utils.ObjectToStr(newdr3["title"]) + "\" href=\"");
 	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(newdr3["id"])));
 
-	templateBuilder.Append("\">" + Utils.ObjectToStr(newdr3["title"]) + "</a>");	templateBuilder.Append(Utils.ObjectToDateTime(Utils.ObjectToStr(newdr3["add_time"])).ToString("YYYY-MM-dd"));
+	templateBuilder.Append("\">" + Utils.ObjectToStr(newdr3["title"]) + "</a>");	templateBuilder.Append(Utils.ObjectToDateTime(Utils.ObjectToStr(newdr3["add_time"])).ToString("yyyy-MM-dd"));
 
 	templateBuilder.Append("\r\n        </li>\r\n        ");
 	}	//end for if
@@ -135,9 +151,28 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("/templates/jiancha");
 	templateBuilder.Append("/images/jbcx-icon.png\" /></span><a href=\"#\">举报查询</a></li>\r\n      </ul>\r\n      <p>举报电话：010-99553386</p>\r\n    </div>\r\n\r\n\r\n            <div class=\"zhuanti\"> <img src=\"");
 	templateBuilder.Append("/templates/jiancha");
-	templateBuilder.Append("/images/zhuanti1.jpg\" /> </div>\r\n  <!--互动交流-->\r\n  <div class=\"hudongjiaoliu\">\r\n    <div class=\"title-box\">\r\n      <div class=\"title\">互动交流</div>\r\n      <div class=\"more\"><a href=\"#\">更多</a></div>\r\n    </div>\r\n    <div class=\"hdjl-hot\">\r\n      <div class=\"hotimg\"><img src=\"");
-	templateBuilder.Append("/templates/jiancha");
-	templateBuilder.Append("/images/hdjl-img.jpg\" /></div>\r\n      <div class=\"hottext\">\r\n        <h2><a href=\"#\">中央纪委委员、贵州省委常委、省纪委书记宋璇...</a></h2>\r\n        <p><a href=\"#\">宋璇涛：第三个方面解决了原来办不成案的问题；第四个也解决了真正意义上监督同级党委的问题。民生特派组长是我们县里系统纪工委主任兼任，那么这个乡镇。我们贵州去年是2400多个亿惠民资金，执行党的路线方针政策连惠民资金都不能落实到位的话，其他的恐怕...\r\n          就是一句空话。所以说，纪检监察工作... </a> </p>\r\n      </div>\r\n    </div>\r\n    <div class=\"news hdjl-list\">\r\n      <ul>\r\n         ");
+	templateBuilder.Append("/images/zhuanti1.jpg\" /> </div>\r\n  <!--互动交流-->\r\n  <div class=\"hudongjiaoliu\">\r\n    <div class=\"title-box\">\r\n      <div class=\"title\">互动交流</div>\r\n      <div class=\"more\"><a href=\"");
+	templateBuilder.Append(linkurl("news_list",62));
+
+	templateBuilder.Append("\">更多</a></div>\r\n    </div>\r\n    <div class=\"hdjl-hot\">\r\n\r\n        ");
+	DataTable newsLista = get_article_list("jianchanews", 62, 1, "status=0 and is_slide=1 and img_url<>''");
+
+	int newdra__loop__id=0;
+	foreach(DataRow newdra in newsLista.Rows)
+	{
+		newdra__loop__id++;
+
+
+	templateBuilder.Append("\r\n        \r\n\r\n      <div class=\"hotimg\">\r\n          <img src=\"" + Utils.ObjectToStr(newdra["img_url"]) + "\" />\r\n      </div>\r\n      <div class=\"hottext\">\r\n        <h2><a href=\"");
+	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(newdra["id"])));
+
+	templateBuilder.Append("\">" + Utils.ObjectToStr(newdra["title"]) + "</a></h2>\r\n        <p><a href=\"");
+	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(newdra["id"])));
+
+	templateBuilder.Append("\">" + Utils.ObjectToStr(newdra["zhaiyao"]) + " </a> </p>\r\n      </div>\r\n        ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n    </div>\r\n    <div class=\"news hdjl-list\">\r\n      <ul>\r\n         ");
 	DataTable newsList4 = get_article_list("jianchanews", 62, 3, "status=0");
 
 	int newdr4__loop__id=0;
@@ -149,7 +184,7 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("\r\n        <li>\r\n          <a title=\"" + Utils.ObjectToStr(newdr4["title"]) + "\" href=\"");
 	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(newdr4["id"])));
 
-	templateBuilder.Append("\">" + Utils.ObjectToStr(newdr4["title"]) + "</a>");	templateBuilder.Append(Utils.ObjectToDateTime(Utils.ObjectToStr(newdr4["add_time"])).ToString("YYYY-MM-dd"));
+	templateBuilder.Append("\">" + Utils.ObjectToStr(newdr4["title"]) + "</a>");	templateBuilder.Append(Utils.ObjectToDateTime(Utils.ObjectToStr(newdr4["add_time"])).ToString("yyyy-MM-dd"));
 
 	templateBuilder.Append("\r\n        </li>\r\n        ");
 	}	//end for if
@@ -166,13 +201,16 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("\r\n        <li>\r\n          <a title=\"" + Utils.ObjectToStr(newdr5["title"]) + "\" href=\"");
 	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(newdr5["id"])));
 
-	templateBuilder.Append("\">" + Utils.ObjectToStr(newdr5["title"]) + "</a>");	templateBuilder.Append(Utils.ObjectToDateTime(Utils.ObjectToStr(newdr5["add_time"])).ToString("YYYY-MM-dd"));
+	templateBuilder.Append("\">" + Utils.ObjectToStr(newdr5["title"]) + "</a>");	templateBuilder.Append(Utils.ObjectToDateTime(Utils.ObjectToStr(newdr5["add_time"])).ToString("yyyy-MM-dd"));
 
 	templateBuilder.Append("\r\n        </li>\r\n        ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n      </ul>\r\n    </div>\r\n  </div>\r\n  <!--理论思考-->\r\n  <div class=\"lilunsikao\">\r\n    <div class=\"title-box\">\r\n      <div class=\"title\">理论思考</div>\r\n      <div class=\"more\"><a href=\"#\">更多</a></div>\r\n    </div>\r\n    <div class=\"news\">\r\n      <ul>\r\n        ");
-	DataTable newsList6 = get_article_list("jianchanews", 62, 3, "status=0");
+	templateBuilder.Append("\r\n      </ul>\r\n    </div>\r\n  </div>\r\n  <!--理论思考-->\r\n  <div class=\"lilunsikao\">\r\n    <div class=\"title-box\">\r\n      <div class=\"title\">理论思考</div>\r\n      <div class=\"more\"><a href=\"");
+	templateBuilder.Append(linkurl("news_list",64));
+
+	templateBuilder.Append("\">更多</a></div>\r\n    </div>\r\n    <div class=\"news\">\r\n      <ul>\r\n        ");
+	DataTable newsList6 = get_article_list("jianchanews", 64, 3, "status=0");
 
 	int newdr6__loop__id=0;
 	foreach(DataRow newdr6 in newsList6.Rows)
@@ -183,14 +221,30 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("\r\n        <li>\r\n          <a title=\"" + Utils.ObjectToStr(newdr6["title"]) + "\" href=\"");
 	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(newdr6["id"])));
 
-	templateBuilder.Append("\">" + Utils.ObjectToStr(newdr6["title"]) + "</a>");	templateBuilder.Append(Utils.ObjectToDateTime(Utils.ObjectToStr(newdr6["add_time"])).ToString("YYYY-MM-dd"));
+	templateBuilder.Append("\">" + Utils.ObjectToStr(newdr6["title"]) + "</a>");	templateBuilder.Append(Utils.ObjectToDateTime(Utils.ObjectToStr(newdr6["add_time"])).ToString("yyyy-MM-dd"));
 
 	templateBuilder.Append("\r\n        </li>\r\n        ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n      </ul>\r\n    </div>\r\n  </div>\r\n  <!--廉政先锋-->\r\n  <div class=\"fl third\">\r\n    <div class=\"title-box\">\r\n      <div class=\"title\">廉政先锋</div>\r\n      <div class=\"more\"><a href=\"#\">更多</a></div>\r\n    </div>\r\n    <div class=\"pioneer\">\r\n      <img src=\"");
-	templateBuilder.Append("/templates/jiancha");
-	templateBuilder.Append("/images/lzxf-img.jpg\" />\r\n      <a href=\"#\">这里是主题字段</a>\r\n    </div>\r\n    <div class=\"news\">\r\n      <ul>\r\n        ");
+	templateBuilder.Append("\r\n      </ul>\r\n    </div>\r\n  </div>\r\n  <!--廉政先锋-->\r\n  <div class=\"fl third\">\r\n    <div class=\"title-box\">\r\n      <div class=\"title\">廉政先锋</div>\r\n      <div class=\"more\"><a href=\"");
+	templateBuilder.Append(linkurl("news_list",59));
+
+	templateBuilder.Append("\">更多</a></div>\r\n    </div>\r\n    <div class=\"pioneer\">\r\n\r\n        ");
+	DataTable newsListb = get_article_list("jianchanews", 59, 1, "status=0 and is_slide=1 and img_url<>''");
+
+	int newdrb__loop__id=0;
+	foreach(DataRow newdrb in newsListb.Rows)
+	{
+		newdrb__loop__id++;
+
+
+	templateBuilder.Append("\r\n          <img src=\"" + Utils.ObjectToStr(newdrb["img_url"]) + "\" />\r\n        <a href=\"");
+	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(newdrb["id"])));
+
+	templateBuilder.Append("\">" + Utils.ObjectToStr(newdrb["title"]) + "</a>\r\n        ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n\r\n    </div>\r\n    <div class=\"news\">\r\n      <ul>\r\n        ");
 	DataTable newsList7 = get_article_list("jianchanews", 62, 3, "status=0");
 
 	int newdr7__loop__id=0;
@@ -205,8 +259,11 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("\">" + Utils.ObjectToStr(newdr7["title"]) + "</a>\r\n        </li>\r\n        ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n      </ul>\r\n    </div>\r\n  </div>\r\n  <!--政策法规-->\r\n  <div class=\"fl third nomargin\">\r\n    <div class=\"title-box\">\r\n      <div class=\"title\">政策法规</div>\r\n      <div class=\"more\"><a href=\"#\">更多</a></div>\r\n    </div>\r\n    <div class=\"redline\"></div>\r\n    <div class=\"news \">\r\n      <ul>\r\n        ");
-	DataTable newsList8 = get_article_list("jianchanews", 62, 3, "status=0");
+	templateBuilder.Append("\r\n      </ul>\r\n    </div>\r\n  </div>\r\n  <!--政策法规-->\r\n  <div class=\"fl third nomargin\">\r\n    <div class=\"title-box\">\r\n      <div class=\"title\">政策法规</div>\r\n      <div class=\"more\"><a href=\"");
+	templateBuilder.Append(linkurl("news_list",57));
+
+	templateBuilder.Append("\">更多</a></div>\r\n    </div>\r\n    <div class=\"redline\"></div>\r\n    <div class=\"news \">\r\n      <ul>\r\n        ");
+	DataTable newsList8 = get_article_list("jianchanews", 57, 3, "status=0");
 
 	int newdr8__loop__id=0;
 	foreach(DataRow newdr8 in newsList8.Rows)
@@ -222,19 +279,43 @@ override protected void OnInit(EventArgs e)
 
 	templateBuilder.Append("\r\n      </ul>\r\n    </div>\r\n  </div>\r\n  <!--违纪曝光-->\r\n  <div class=\"fr third nomargin\">\r\n    <div class=\"title-box\">\r\n      <div class=\"title\"><img src=\"");
 	templateBuilder.Append("/templates/jiancha");
-	templateBuilder.Append("/images/wjbg-icon.png\" />违纪曝光</div>\r\n      <div class=\"more\"><a href=\"#\">更多</a></div>\r\n    </div>\r\n    <div class=\"hotPic\">\r\n		<div class=\"JQ-slide\">\r\n			<div class=\"JQ-slide-nav\"><a class=\"prev\" href=\"javascript:void(0);\">&#8249;</a><a class=\"next\" href=\"javascript:void(0);\">&#8250;</a></div>\r\n			<div class=\"wrap\">\r\n				<ul class=\"JQ-slide-content imgList\">\r\n					<li>\r\n						<a href=\"#\" class=\"img\"><img src=\"");
-	templateBuilder.Append("/templates/jiancha");
-	templateBuilder.Append("/images/vedio-img.jpg\"  alt=\"1111\" /></a>\r\n						<a href=\"#\" class=\"txt\">用jquery特效制作图片金字塔式放大缩小展示</a>\r\n					</li>\r\n					<li>\r\n						<a href=\"#\" class=\"img\"><img src=\"");
-	templateBuilder.Append("/templates/jiancha");
-	templateBuilder.Append("/images/vedio-img2.jpg\"  alt=\"1111\" /></a>\r\n						<a href=\"#\" class=\"txt\">jquery特效制作 slide 图片窗帘式滚动</a>\r\n					</li>\r\n					<li>\r\n						<a href=\"#\" class=\"img\"><img src=\"");
-	templateBuilder.Append("/templates/jiancha");
-	templateBuilder.Append("/images/pic1.jpg\" /></a>\r\n						<a href=\"#\" class=\"txt\">仿苹果视网膜效应的jQuery和CSS</a>\r\n					</li>\r\n					<li>\r\n						<a href=\"#\" class=\"img\"><img src=\"");
-	templateBuilder.Append("/templates/jiancha");
-	templateBuilder.Append("/images/pic2.jpg\" /></a>\r\n						<a href=\"#\" class=\"txt\">斯莱德奥特提示使用jQuery和CSS3</a>\r\n					</li>\r\n					<li>\r\n						<a href=\"#\" class=\"img\"><img src=\"");
-	templateBuilder.Append("/templates/jiancha");
-	templateBuilder.Append("/images/pic3.jpg\" /></a>\r\n						<a href=\"#\" class=\"txt\">用jquery特效制作图片金字塔式放大缩小展示</a>\r\n					</li>\r\n					<li>\r\n						<a href=\"#\" class=\"img\"><img src=\"");
-	templateBuilder.Append("/templates/jiancha");
-	templateBuilder.Append("/images/pic4.jpg\" /></a>\r\n						<a href=\"#\" class=\"txt\">jquery特效制作 slide 图片窗帘式滚动</a>\r\n					</li>\r\n					\r\n				</ul>\r\n			</div>\r\n		</div>\r\n	</div>\r\n    <div class=\"news break-rule-list\">\r\n      <ul>\r\n        <li><a href=\"#\">切实保持和增强政治性先进性群众性 开创新形行行行行行行行行行 </a></li>\r\n        <li><a href=\"#\">切实保持和增强政治性先进性群众性 开创新形行行行行行行行行行 </a></li>\r\n        <li><a href=\"#\">切实保持和增强政治性先进性群众性 开创新形行行行行行行行行行 </a></li>\r\n        <li><a href=\"#\">切实保持和增强政治性先进性群众性 开创新形行行行行行行行行行 </a></li>\r\n        <li><a href=\"#\">切实保持和增强政治性先进性群众性 开创新形行行行行行行行行行 </a></li>\r\n        <li><a href=\"#\">切实保持和增强政治性先进性群众性 开创新形行行行行行行行行行 </a></li>\r\n        <li><a href=\"#\">切实保持和增强政治性先进性群众性 开创新形行行行行行行行行行 </a></li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n  <!--快捷入口-->\r\n  <script type=\"text/javascript\">\r\n\r\n      function scrollDoor() {\r\n      }\r\n      scrollDoor.prototype = {\r\n          sd: function (menus, divs, openClass, closeClass) {\r\n              var _this = this;\r\n              if (menus.length != divs.length) {\r\n                  alert(\"菜单层数量和内容层数量不一样!\");\r\n                  return false;\r\n              }\r\n              for (var i = 0 ; i < menus.length ; i++) {\r\n                  _this.$(menus[i]).value = i;\r\n                  _this.$(menus[i]).onclick = function () {\r\n\r\n                      for (var j = 0 ; j < menus.length ; j++) {\r\n                          _this.$(menus[j]).className = closeClass;\r\n                          _this.$(divs[j]).style.display = \"none\";\r\n                      }\r\n                      _this.$(menus[this.value]).className = openClass;\r\n                      _this.$(divs[this.value]).style.display = \"block\";\r\n                  }\r\n              }\r\n          },\r\n          $: function (oid) {\r\n              if (typeof (oid) == \"string\")\r\n                  return document.getElementById(oid);\r\n              return oid;\r\n          }\r\n      }\r\n      window.onload = function () {\r\n          var SDmodel = new scrollDoor();\r\n          SDmodel.sd([\"m01\", \"m02\", \"m03\"], [\"c01\", \"c02\", \"c03\"], \"sd01\", \"sd02\");\r\n          SDmodel.sd([\"mm01\", \"mm02\", \"mm03\"], [\"cc01\", \"cc02\", \"cc03\"], \"sd03\", \"sd02\");\r\n      }\r\n</");
+	templateBuilder.Append("/images/wjbg-icon.png\" />违纪曝光</div>\r\n      <div class=\"more\"><a href=\"");
+	templateBuilder.Append(linkurl("news_list",65));
+
+	templateBuilder.Append("\">更多</a></div>\r\n    </div>\r\n    <div class=\"hotPic\">\r\n		<div class=\"JQ-slide\">\r\n			<div class=\"JQ-slide-nav\"><a class=\"prev\" href=\"javascript:void(0);\">&#8249;</a><a class=\"next\" href=\"javascript:void(0);\">&#8250;</a></div>\r\n			<div class=\"wrap\">\r\n				<ul class=\"JQ-slide-content imgList\">\r\n                    ");
+	DataTable newsListc = get_article_list("jianchanews", 65, 3, "status=0 and is_slide=1 and img_url<>''");
+
+	int newdrc__loop__id=0;
+	foreach(DataRow newdrc in newsListc.Rows)
+	{
+		newdrc__loop__id++;
+
+
+	templateBuilder.Append("\r\n                    <li>\r\n                        <a title=\"" + Utils.ObjectToStr(newdrc["title"]) + "\" class=\"img\" href=\"");
+	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(newdrc["id"])));
+
+	templateBuilder.Append("\"><img src=\"" + Utils.ObjectToStr(newdrc["img_url"]) + "\" /></a>\r\n                        <a title=\"" + Utils.ObjectToStr(newdrc["title"]) + "\" class=\"txt\" href=\"");
+	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(newdrc["id"])));
+
+	templateBuilder.Append("\">" + Utils.ObjectToStr(newdrc["title"]) + "</a>\r\n                    </li>\r\n                    ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n				</ul>\r\n			</div>\r\n		</div>\r\n	</div>\r\n    <div class=\"news break-rule-list\">\r\n      <ul>\r\n        ");
+	DataTable newsList9 = get_article_list("jianchanews", 65, 3, "status=0");
+
+	int newdr9__loop__id=0;
+	foreach(DataRow newdr9 in newsList9.Rows)
+	{
+		newdr9__loop__id++;
+
+
+	templateBuilder.Append("\r\n        <li>\r\n          <a title=\"" + Utils.ObjectToStr(newdr9["title"]) + "\" href=\"");
+	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(newdr9["id"])));
+
+	templateBuilder.Append("\">" + Utils.ObjectToStr(newdr9["title"]) + "</a>\r\n        </li>\r\n        ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n      </ul>\r\n    </div>\r\n  </div>\r\n  <!--快捷入口-->\r\n  <script type=\"text/javascript\">\r\n\r\n      function scrollDoor() {\r\n      }\r\n      scrollDoor.prototype = {\r\n          sd: function (menus, divs, openClass, closeClass) {\r\n              var _this = this;\r\n              if (menus.length != divs.length) {\r\n                  alert(\"菜单层数量和内容层数量不一样!\");\r\n                  return false;\r\n              }\r\n              for (var i = 0 ; i < menus.length ; i++) {\r\n                  _this.$(menus[i]).value = i;\r\n                  _this.$(menus[i]).onclick = function () {\r\n\r\n                      for (var j = 0 ; j < menus.length ; j++) {\r\n                          _this.$(menus[j]).className = closeClass;\r\n                          _this.$(divs[j]).style.display = \"none\";\r\n                      }\r\n                      _this.$(menus[this.value]).className = openClass;\r\n                      _this.$(divs[this.value]).style.display = \"block\";\r\n                  }\r\n              }\r\n          },\r\n          $: function (oid) {\r\n              if (typeof (oid) == \"string\")\r\n                  return document.getElementById(oid);\r\n              return oid;\r\n          }\r\n      }\r\n      window.onload = function () {\r\n          var SDmodel = new scrollDoor();\r\n          SDmodel.sd([\"m01\", \"m02\", \"m03\"], [\"c01\", \"c02\", \"c03\"], \"sd01\", \"sd02\");\r\n          SDmodel.sd([\"mm01\", \"mm02\", \"mm03\"], [\"cc01\", \"cc02\", \"cc03\"], \"sd03\", \"sd02\");\r\n      }\r\n</");
 	templateBuilder.Append("script>\r\n  <div class=\"tabbox\" >\r\n     <div class=\"red-title-box\"><div class=\"red-title\">快捷入口</div></div>\r\n     <div class=\"preview\">\r\n        <div class=\"scrollUl\">\r\n			<ul>\r\n				<li class=\"sd01\" id=\"m01\">廉政教育</li>\r\n				<li class=\"sd02\" id=\"m02\">问卷调查</li>\r\n				<li class=\"sd02\" id=\"m03\">网址导航</li>\r\n			</ul>\r\n        </div>\r\n			<div class=\"cont\">\r\n				<div id=\"c01\">\r\n					<a href=\"#\">以案说纪</a>\r\n                    <a href=\"#\">廉政文艺</a>\r\n                    <a href=\"#\">廉史博览</a>\r\n                    <a href=\"#\">廉政书籍</a>\r\n                    <a href=\"#\">法规释义</a>\r\n                    \r\n				</div>\r\n				<div id=\"c02\" class=\"hidden\">\r\n					<a href=\"#\">廉政文艺</a>\r\n                    <a href=\"#\">廉政文艺</a>\r\n                    <a href=\"#\">廉政文艺</a>\r\n                    <a href=\"#\">廉政文艺</a>\r\n                    <a href=\"#\">廉政文艺</a>\r\n				</div>\r\n				<div id=\"c03\" class=\"hidden\">\r\n					<a href=\"#\">廉史博览</a>\r\n                    <a href=\"#\">廉史博览</a>\r\n                    <a href=\"#\">廉史博览</a>\r\n                    <a href=\"#\">廉史博览</a>\r\n                    <a href=\"#\">廉史博览</a>\r\n                    <a href=\"#\">廉史博览</a>\r\n				</div>\r\n			</div>\r\n	</div>\r\n  </div>\r\n  <div class=\"tabbox\">\r\n     <div class=\"yellow-title-box\"><div class=\"yellow-title\">政务公开</div></div>\r\n     <div class=\"preview\">\r\n        <div class=\"scrollUl\">\r\n			<ul>\r\n				<li class=\"sd03\" id=\"mm01\">政府信息公开</li>\r\n				<li class=\"sd02\" id=\"mm02\">依申请公开</li>\r\n				<li class=\"sd02\" id=\"mm03\">公开保</li>\r\n			</ul>\r\n        </div>\r\n			<div class=\"cont2\"> \r\n				<div id=\"cc01\">\r\n					<a href=\"#\">领导简历</a>\r\n                    <a href=\"#\">政府公文</a>\r\n                    <a href=\"#\">权力公开</a>\r\n                    <a href=\"#\">发展规划</a>\r\n                    <a href=\"#\">重点工作</a>\r\n                    <a href=\"#\">人事信息</a>\r\n                    <a href=\"#\">统计数据</a>\r\n                    <a href=\"#\">应急管理</a>\r\n                    <a href=\"#\">行政收费</a>\r\n                    <a href=\"#\">部门信息</a>\r\n                    <a href=\"#\">更多公开内容</a>\r\n                    \r\n				</div>\r\n				<div id=\"cc02\" class=\"hidden\">\r\n					<a href=\"#\">廉政文艺</a>\r\n                    <a href=\"#\">廉政文艺</a>\r\n                    <a href=\"#\">廉政文艺</a>\r\n                    <a href=\"#\">廉政文艺</a>\r\n                    <a href=\"#\">廉政文艺</a>\r\n				</div>\r\n				<div id=\"cc03\" class=\"hidden\">\r\n					<a href=\"#\">廉史博览</a>\r\n                    <a href=\"#\">廉史博览</a>\r\n                    <a href=\"#\">廉史博览</a>\r\n                    <a href=\"#\">廉史博览</a>\r\n                    <a href=\"#\">廉史博览</a>\r\n                    <a href=\"#\">廉史博览</a>\r\n				</div>\r\n			</div>\r\n	</div>\r\n  </div>\r\n  <div class=\"btnbox\">\r\n     <b><a href=\"#\">发布通知</a></b>\r\n     <b><a href=\"#\">区政府折子工作</a></b>\r\n     <b><a href=\"#\">园区建设</a></b>\r\n     <b><a href=\"#\">自身建设</a></b>\r\n     <b><a href=\"#\">环境巡查日报</a></b>\r\n     <div class=\"bigbutton\">\r\n       <span class=\"fl\">\r\n         <a href=\"#\"><img src=\"");
 	templateBuilder.Append("/templates/jiancha");
 	templateBuilder.Append("/images/yqgw-icon.png\" /><h4>园区官网</h4></a>\r\n       </span>\r\n       <span class=\"fr\">\r\n         <a href=\"#\"><img src=\"");

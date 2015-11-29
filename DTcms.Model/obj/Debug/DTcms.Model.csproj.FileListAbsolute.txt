@@ -33,3 +33,10 @@ D:\dtCMS发货\集成更新包\DTcms_4.0_sql_src_Ultimate\DTcms.Model\bin\Debug\
 D:\dtCMS发货\集成更新包\DTcms_4.0_sql_src_Ultimate\DTcms.Model\obj\Debug\DTcms.Model.csprojResolveAssemblyReference.cache
 D:\dtCMS发货\集成更新包\DTcms_4.0_sql_src_Ultimate\DTcms.Model\obj\Debug\DTcms.Model.dll
 D:\dtCMS发货\集成更新包\DTcms_4.0_sql_src_Ultimate\DTcms.Model\obj\Debug\DTcms.Model.pdb
+D:\workspace\dx2\DTcms.Model\bin\Debug\DTcms.Model.dll
+D:\workspace\dx2\DTcms.Model\bin\Debug\DTcms.Model.pdb
+D:\workspace\dx2\DTcms.Model\bin\Debug\DTcms.Common.dll
+D:\workspace\dx2\DTcms.Model\bin\Debug\DTcms.Common.pdb
+D:\workspace\dx2\DTcms.Model\obj\Debug\DTcms.Model.csprojResolveAssemblyReference.cache
+D:\workspace\dx2\DTcms.Model\obj\Debug\DTcms.Model.dll
+D:\workspace\dx2\DTcms.Model\obj\Debug\DTcms.Model.pdb

@@ -33,3 +33,10 @@ D:\dtCMS发货\集成更新包\DTcms_4.0_sql_src_Ultimate\DTcms.DBUtility\bin\De
 D:\dtCMS发货\集成更新包\DTcms_4.0_sql_src_Ultimate\DTcms.DBUtility\obj\Debug\DTcms.DBUtility.csprojResolveAssemblyReference.cache
 D:\dtCMS发货\集成更新包\DTcms_4.0_sql_src_Ultimate\DTcms.DBUtility\obj\Debug\DTcms.DBUtility.dll
 D:\dtCMS发货\集成更新包\DTcms_4.0_sql_src_Ultimate\DTcms.DBUtility\obj\Debug\DTcms.DBUtility.pdb
+D:\workspace\dx2\DTcms.DBUtility\bin\Debug\DTcms.DBUtility.dll
+D:\workspace\dx2\DTcms.DBUtility\bin\Debug\DTcms.DBUtility.pdb
+D:\workspace\dx2\DTcms.DBUtility\bin\Debug\DTcms.Common.dll
+D:\workspace\dx2\DTcms.DBUtility\bin\Debug\DTcms.Common.pdb
+D:\workspace\dx2\DTcms.DBUtility\obj\Debug\DTcms.DBUtility.csprojResolveAssemblyReference.cache
+D:\workspace\dx2\DTcms.DBUtility\obj\Debug\DTcms.DBUtility.dll
+D:\workspace\dx2\DTcms.DBUtility\obj\Debug\DTcms.DBUtility.pdb
