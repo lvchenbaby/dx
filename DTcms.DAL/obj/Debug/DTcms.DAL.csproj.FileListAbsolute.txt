@@ -64,3 +64,14 @@ D:\workspace\dx2\DTcms.DAL\bin\Debug\DTcms.Model.pdb
 D:\workspace\dx2\DTcms.DAL\obj\Debug\DTcms.DAL.csprojResolveAssemblyReference.cache
 D:\workspace\dx2\DTcms.DAL\obj\Debug\DTcms.DAL.dll
 D:\workspace\dx2\DTcms.DAL\obj\Debug\DTcms.DAL.pdb
+D:\dotnetproject\dx1\DTcms.DAL\bin\Debug\DTcms.DAL.dll
+D:\dotnetproject\dx1\DTcms.DAL\bin\Debug\DTcms.DAL.pdb
+D:\dotnetproject\dx1\DTcms.DAL\bin\Debug\DTcms.Common.dll
+D:\dotnetproject\dx1\DTcms.DAL\bin\Debug\DTcms.DBUtility.dll
+D:\dotnetproject\dx1\DTcms.DAL\bin\Debug\DTcms.Model.dll
+D:\dotnetproject\dx1\DTcms.DAL\bin\Debug\DTcms.Common.pdb
+D:\dotnetproject\dx1\DTcms.DAL\bin\Debug\DTcms.DBUtility.pdb
+D:\dotnetproject\dx1\DTcms.DAL\bin\Debug\DTcms.Model.pdb
+D:\dotnetproject\dx1\DTcms.DAL\obj\Debug\DTcms.DAL.csprojResolveAssemblyReference.cache
+D:\dotnetproject\dx1\DTcms.DAL\obj\Debug\DTcms.DAL.dll
+D:\dotnetproject\dx1\DTcms.DAL\obj\Debug\DTcms.DAL.pdb
