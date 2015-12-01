@@ -61,7 +61,7 @@
 
     </div>
     <div class="rightside">
-       <div class="r-title">国家法律法规</div>
+       <div class="r-title"><%=get_category_title(category_id, "所有类别")%></div>
        <ul>
            <%set DataTable newsList=get_article_list("jianchanews", category_id, pagesize, page, "status=0", out totalcount, out pagelist, "list_news", category_id, "__id__")%><!--取得一个分页DataTable-->
       <%foreach(DataRow dr in newsList.Rows)%>

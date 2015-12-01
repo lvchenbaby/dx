@@ -76,3 +76,16 @@ D:\workspace\dx2\DTcms.BLL\bin\Debug\DTcms.DBUtility.pdb
 D:\workspace\dx2\DTcms.BLL\obj\Debug\DTcms.BLL.csprojResolveAssemblyReference.cache
 D:\workspace\dx2\DTcms.BLL\obj\Debug\DTcms.BLL.dll
 D:\workspace\dx2\DTcms.BLL\obj\Debug\DTcms.BLL.pdb
+D:\dotnetproject\dx1\DTcms.BLL\bin\Debug\DTcms.BLL.dll
+D:\dotnetproject\dx1\DTcms.BLL\bin\Debug\DTcms.BLL.pdb
+D:\dotnetproject\dx1\DTcms.BLL\bin\Debug\DTcms.Common.dll
+D:\dotnetproject\dx1\DTcms.BLL\bin\Debug\DTcms.DAL.dll
+D:\dotnetproject\dx1\DTcms.BLL\bin\Debug\DTcms.Model.dll
+D:\dotnetproject\dx1\DTcms.BLL\bin\Debug\DTcms.DBUtility.dll
+D:\dotnetproject\dx1\DTcms.BLL\bin\Debug\DTcms.Common.pdb
+D:\dotnetproject\dx1\DTcms.BLL\bin\Debug\DTcms.DAL.pdb
+D:\dotnetproject\dx1\DTcms.BLL\bin\Debug\DTcms.Model.pdb
+D:\dotnetproject\dx1\DTcms.BLL\bin\Debug\DTcms.DBUtility.pdb
+D:\dotnetproject\dx1\DTcms.BLL\obj\Debug\DTcms.BLL.csprojResolveAssemblyReference.cache
+D:\dotnetproject\dx1\DTcms.BLL\obj\Debug\DTcms.BLL.dll
+D:\dotnetproject\dx1\DTcms.BLL\obj\Debug\DTcms.BLL.pdb
